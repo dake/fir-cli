@@ -4,7 +4,7 @@ fir-cli 使用 Ruby 构建, 无需编译, 只要安装相应 gem 即可.
 
 ```sh
 $ ruby -v # > 1.9.3
-$ gem install fir-cli
+$ gem install fir-cli-dake
 ```
 
 #### 常见的安装问题
@@ -34,7 +34,7 @@ $ gem install fir-cli
   # 请确保只有 ruby.taobao.org, 如果有其他的源, 请 remove 掉
 
   gem update --system
-  gem install fir-cli
+  gem install fir-cli-dake
   ```
 
 - Mac OS X 10.11 以后的版本, 由于10.11引入了 `rootless`, 无法直接安装 fir-cli, 有以下三种解决办法:
@@ -48,18 +48,18 @@ $ gem install fir-cli
   # Install RVM:
   $ \curl -sSL https://get.rvm.io | bash -s stable --ruby
 
-  $ gem install fir-cli
+  $ gem install fir-cli-dake
   ```
 
   2\. 指定 fir-cli 中 bin 文件的 PATH
 
   ```sh
-  $ export PATH=/usr/local/bin:$PATH;gem install -n /usr/local/bin fir-cli
+  $ export PATH=/usr/local/bin:$PATH;gem install -n /usr/local/bin fir-cli-dake
   ```
 
   3\. 重写 Ruby Gem 的 bindir
 
   ```sh
   $ echo 'gem: --bindir /usr/local/bin' >> ~/.gemrc
-  $ gem install fir-cli
+  $ gem install fir-cli-dake
   ```

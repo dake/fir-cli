@@ -36,11 +36,14 @@ module FIR
       @icon_cert   = @uploading_info[:cert][:icon]
       @binary_cert = @uploading_info[:cert][:binary]
 
+      fetch_release_info
       upload_app_icon unless @app_info[:icons].blank?
       upload_app_binary
       upload_device_info
       update_app_info
       fetch_app_info
+      update_release_info
+
     end
 
     %w(icon binary).each do |postfix|
@@ -119,6 +122,24 @@ module FIR
       @fir_app_info = get(fir_api[:app_url] + "/#{@app_id}", api_token: @token)
       write_app_info(id: @fir_app_info[:id], short: @fir_app_info[:short], name: @fir_app_info[:name])
       @fir_app_info
+    end
+
+    def fetch_release_info
+      logger.info 'Fetch release info from fir.im'
+
+      release_info = get(fir_api[:app_url] + "/#{@app_id}" + "/releases", api_token: @token, page: 1)
+      if release_info[:datas].count > 0
+        @release_id = release_info[:datas][0][:id]
+      end
+
+    end
+
+    def update_release_info
+      logger.info "Update release" ":#{@release_id}" + " info from fir.im"
+
+      if nil != @release_id
+        patch fir_api[:app_url] + "/#{@app_id}" + "/releases" + "/#{@release_id}", api_token: @token, is_history: true
+      end
     end
 
     def upload_mapping_file_with_publish(options)

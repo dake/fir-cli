@@ -5,14 +5,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'fir/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'fir-cli'
+  spec.name          = 'fir-cli-dake'
   spec.version       = FIR::VERSION
   spec.authors       = ['NaixSpirit']
   spec.email         = ['neverlandxy.naix@gmail.com']
   spec.date          = Time.now.strftime('%Y-%m-%d')
   spec.summary       = 'fir.im command tool'
   spec.description   = 'fir.im command tool, support iOS and Android'
-  spec.homepage      = 'https://github.com/FIRHQ/fir-cli'
+  spec.homepage      = 'https://github.com/dake/fir-cli'
   spec.license       = 'MIT'
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
@@ -27,12 +27,10 @@ Gem::Specification.new do |spec|
     /_/   /___/_/ |_|      \____/_____/___/
 
   ## 更新记录
-  ### fir-cli 1.5.0
-  - 修正 build 后直接 -p 发布的权限错误
-  - 增加上传时候设置密码及公开访问权限
-  - 增加 build_ipa 中的 destination 参数
-  - 详细更新记录, 请查看: https://github.com/FIRHQ/fir-cli/blob/master/CHANGELOG
-  - [fir-cli](https://github.com/FIRHQ/fir-cli) 已经开源
+  ### fir-cli 2.0.0
+  - 增加自动开启最近一条历史 release 可见
+  - 详细更新记录, 请查看: https://github.com/dake/fir-cli/blob/master/CHANGELOG
+  - [fir-cli](https://github.com/dake/fir-cli) 已经开源
   - 欢迎 fork, issue 和 pull request
   )
 
